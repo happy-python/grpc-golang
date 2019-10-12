@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"google.golang.org/grpc/reflection"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -229,6 +230,8 @@ func main() {
 	opt := []grpc.ServerOption{}
 	server := grpc.NewServer(opt...)
 	blogpb.RegisterBlogServiceServer(server, &service{})
+	// Register reflection service on gRPC server.
+	reflection.Register(server)
 
 	go func() {
 		log.Println("blog server started")

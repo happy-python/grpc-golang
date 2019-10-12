@@ -38,6 +38,10 @@ Bi Directional Streaming are well suited for
 * "Chat" protocol
 * Long running connections
 
+##### Test CRUD
+Evans CLI
+
 ##### 参考连接
 * https://grpc.io/
 * http://avi.im/grpc-errors/
+* https://github.com/ktr0731/evans
